@@ -36,6 +36,11 @@ function read_and_display_csv($csv_file_path) {
     }
     fclose($csv_file);
 }
+function read_txt_file($txt_file_path) {
+    $content = file_get_contents($txt_file_path);
+    echo $content;
+}
+
 ?>
 
         <!-- Loader -->
