@@ -18,6 +18,26 @@
     </head>
 
     <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
+<?php
+require 'Achievements.csv';
+require 'Team.csv';
+require 'MissionStatement.txt';
+require 'Overview.txt';
+require 'ProductsAndServices.json';
+function read_and_display_json($json_file_path) {
+    $json_data = file_get_contents($json_file_path);
+    $data = json_decode($json_data, true);
+    print_r($data);
+}
+function read_and_display_csv($csv_file_path) {
+    $csv_file = fopen($csv_file_path, 'r');
+    while (($row = fgetcsv($csv_file)) !== false) {
+        print_r($row);
+    }
+    fclose($csv_file);
+}
+?>
+
         <!-- Loader -->
         <div id="preloader">
             <div id="status">
